@@ -1,6 +1,7 @@
 package ruttedbus.util;
 
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public final class SimpleIO {
@@ -103,4 +104,95 @@ public final class SimpleIO {
         return input;
     }
 
+    /**
+     * @return Boolean entered in console
+     */
+    public static boolean readBoolean() {
+        boolean input;
+        Scanner scanner;
+        while(true) {
+            try {
+                scanner = new Scanner(System.in);
+                //Getting input, exception occurs here
+                input = scanner.nextBoolean();
+                break;
+            }
+            catch(InputMismatchException e) {
+                // Use out stream instead of error stream, since error stream does not allow for consistent printing
+                System.out.println("Illegal boolean.");
+            }
+        }
+        scanner.close();
+        return input;
+    }
+    /**
+     * Prompts user to enter an boolean, until a valid boolean is entered.
+     * @param prompt Prompt printed to console on each attempt to enter a boolean
+     * @return Boolean entered in console
+     */
+    public static boolean readBoolean(String prompt) {
+        boolean input;
+        Scanner scanner;
+        while(true) {
+            try {
+                scanner = new Scanner(System.in);
+                System.out.print(prompt);
+                //Getting input, exception occurs here
+                input = scanner.nextBoolean();
+                break;
+            }
+            catch(InputMismatchException e) {
+                // Use out stream instead of error stream, since error stream does not allow for consistent printing
+                System.out.println("Illegal boolean.");
+            }
+        }
+        scanner.close();
+        return input;
+    }
+
+    /**
+     * @return Entered string in console
+      */
+    public static String readLine() {
+        String input;
+        Scanner scanner;
+        while(true) {
+            try {
+                scanner = new Scanner(System.in);
+                //Getting input, exception occurs here
+                input = scanner.nextLine();
+                break;
+            }
+            catch(NoSuchElementException e) {
+                // Use out stream instead of error stream, since error stream does not allow for consistent printing
+                System.out.println("Empty line is invalid.");
+            }
+        }
+        scanner.close();
+        return input;
+    }
+    /**
+     * Prompts user to enter a string.
+     * @param prompt Prompt printed to console on each attempt to enter a string
+     * @return String entered in console
+     */
+    public static String readLine(String prompt) {
+        String input;
+        Scanner scanner;
+        while(true) {
+            try {
+                scanner = new Scanner(System.in);
+                System.out.print(prompt);
+                //Getting input, exception occurs here
+                input = scanner.nextLine();
+                break;
+            }
+            catch(NoSuchElementException e) {
+                // Use out stream instead of error stream, since error stream does not allow for consistent printing
+                System.out.println("Empty line is invalid.");
+            }
+        }
+        scanner.close();
+        return input;
+    }
 }
