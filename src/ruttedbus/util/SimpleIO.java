@@ -1,5 +1,14 @@
 package ruttedbus.util;
 
+/*
+* Class: SimpleIO
+* Properties: public, final
+* Instantiable? No.
+* Static methods: readInt, readDouble, readBoolean, readLine. And their methods that share the same signature
+*
+*/
+
+
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -7,9 +16,7 @@ import java.util.Scanner;
 public final class SimpleIO {
 
     /* Do not allow creation of Utility Class */
-    private SimpleIO() throws IllegalAccessException {
-        throw new IllegalAccessException("Utility class cannot be instantiated!");
-    }
+    private SimpleIO() {}
 
     /**
      * @return Integer entered in console
@@ -29,7 +36,6 @@ public final class SimpleIO {
                 System.out.println("Illegal integer format.");
             }
         }
-        scanner.close();
         return input;
     }
 
@@ -42,8 +48,9 @@ public final class SimpleIO {
         int input;
         Scanner scanner;
         while(true) {
+            scanner = new Scanner(System.in);
             try {
-                scanner = new Scanner(System.in);
+
                 System.out.print(prompt);
                 //Getting input, exception occurs here
                 input = scanner.nextInt();
@@ -53,8 +60,10 @@ public final class SimpleIO {
                 // Use out stream instead of error stream, since error stream does not allow for consistent printing
                 System.out.println("Illegal integer format.");
             }
+            catch(NoSuchElementException e) {
+                System.out.println("No line exists.");
+            }
         }
-        scanner.close();
         return input;
     }
 
@@ -76,7 +85,6 @@ public final class SimpleIO {
                 System.out.println("Illegal double format.");
             }
         }
-        scanner.close();
         return input;
     }
 
@@ -100,7 +108,6 @@ public final class SimpleIO {
                 System.out.println("Illegal double format.");
             }
         }
-        scanner.close();
         return input;
     }
 
@@ -122,7 +129,6 @@ public final class SimpleIO {
                 System.out.println("Illegal boolean.");
             }
         }
-        scanner.close();
         return input;
     }
     /**
@@ -146,7 +152,6 @@ public final class SimpleIO {
                 System.out.println("Illegal boolean.");
             }
         }
-        scanner.close();
         return input;
     }
 
@@ -168,7 +173,6 @@ public final class SimpleIO {
                 System.out.println("Empty line is invalid.");
             }
         }
-        scanner.close();
         return input;
     }
     /**
@@ -189,10 +193,10 @@ public final class SimpleIO {
             }
             catch(NoSuchElementException e) {
                 // Use out stream instead of error stream, since error stream does not allow for consistent printing
-                System.out.println("Empty line is invalid.");
+                System.out.println("No line found");
             }
         }
-        scanner.close();
         return input;
     }
 }
+
