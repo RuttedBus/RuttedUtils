@@ -48,10 +48,9 @@ public final class SimpleIO {
         int input;
         Scanner scanner;
         while(true) {
-            scanner = new Scanner(System.in);
             try {
-
                 System.out.print(prompt);
+                scanner = new Scanner(System.in);
                 //Getting input, exception occurs here
                 input = scanner.nextInt();
                 break;
@@ -97,8 +96,8 @@ public final class SimpleIO {
         Scanner scanner;
         while(true) {
             try {
-                scanner = new Scanner(System.in);
                 System.out.print(prompt);
+                scanner = new Scanner(System.in);
                 //Getting input, exception occurs here
                 input = scanner.nextDouble();
                 break;
@@ -141,8 +140,8 @@ public final class SimpleIO {
         Scanner scanner;
         while(true) {
             try {
-                scanner = new Scanner(System.in);
                 System.out.print(prompt);
+                scanner = new Scanner(System.in);
                 //Getting input, exception occurs here
                 input = scanner.nextBoolean();
                 break;
@@ -185,8 +184,8 @@ public final class SimpleIO {
         Scanner scanner;
         while(true) {
             try {
-                scanner = new Scanner(System.in);
                 System.out.print(prompt);
+                scanner = new Scanner(System.in);
                 //Getting input, exception occurs here
                 input = scanner.nextLine();
                 break;
